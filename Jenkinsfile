@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh 'echo "Hi Jldroid25 Devops"'
                 sh '''
-                    echo "Jenkins brew on Irish Guiness !"
+                    echo "Jenkins brew on Irish Guinness !"
                     pwd
                 '''
             }
