@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Hello Jldroid SRE"'
+                sh 'echo "Hi Jldroid25 Devops"'
                 sh '''
-                    echo "Jenkins More Ireland Guiness !"
-                    ls -lah
+                    echo "Jenkins brew on Irish Guiness !"
+                    pwd
                 '''
             }
         }
