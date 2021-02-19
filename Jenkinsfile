@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Jldroid25 - Site Reliability Engineer "'
+                sh 'echo "Jldroid25 - Devops Engineer "'
                 sh '''
-                    echo "Jenkins brew on Scottish Whiskey  !"
+                    echo "Jenkins serves with Canadian chatte  !"
                     pwd
                 '''
             }
