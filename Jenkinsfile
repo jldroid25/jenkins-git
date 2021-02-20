@@ -11,7 +11,6 @@ pipeline {
                 '''
             }
         } 
-        exit 1
         
         stage('Pipeline Slack Info') {
             steps {
