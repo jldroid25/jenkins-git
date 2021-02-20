@@ -15,7 +15,7 @@ pipeline {
     
     post {
      always {
-       slackSend message: "See ${BUILD_URL}", channel: "Jenkinsre: ${JOB_NAME}: Build status is ${currentBuild.currentResult}"
+       slackSend  channel: "jenkinsre",  message: "${env.BUILD_URL} ${env.JOB_NAME} ${env.currentBuild.currentResult}"
      }
    }
     
