@@ -11,11 +11,20 @@ pipeline {
                 '''
             }
         }
-            stage('Slack it'){
+        stage('Slack it'){
             steps {
                 slackSend channel: "#jenkinsre", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
               }
             }
+         }
     
+    post {
+        success {
+            slackSend channel: "#jenkinsre", message: "${env.BUILD_STATUS}"
+        }
+        
+        failure {
+            slackSend channel: "#jenkinsre", message: "${env.BUILD_STATUS}"
+        }
     }
 }
