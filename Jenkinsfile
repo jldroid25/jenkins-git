@@ -11,10 +11,18 @@ pipeline {
                 '''
             }
         } 
+        exit 1
         
         stage('Pipeline Slack Info') {
             steps {
-                slackSend failOnError: true, channel: "#jenkinsre", message: " Successful Build for:   ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}open>) "
+                slackSend failOnError: no, channel: "#jenkinsre", message: " Successful Build for:   ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}open>) "
+                
+            }
+        } 
+        
+         stage('Pipeline Slack Failure MSG') {
+            steps {
+                slackSend failOnError: true,  message: " Pipeline/Job Failed see:   ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}open>) "
                 
             }
         } 
