@@ -9,6 +9,11 @@ pipeline {
                     pwd
                 '''
             }
+            stage('Slack it'){
+            steps {
+                slackSend channel: '#jenkisre', 
+                          message: 'Hello, did you see MTL?'
+            }
         }
     }
 }
