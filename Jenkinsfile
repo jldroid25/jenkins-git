@@ -11,12 +11,16 @@ pipeline {
                 '''
             }
         } 
-    }
-    
-    post {
-     always {
-       emailext body: "See ${BUILD_URL}", recipientProviders: [requestor()], subject: "Jenkins: ${JOB_NAME}: Build status is ${currentBuild.currentResult}"
-     }
+        
+        stage('Pipeline Slack Info') {
+            steps {
+                
+                slackSend failOnError: true, channel: "#jenkinsre", message: "(<${env.BUILD_URL}open>) ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                
+            }
+        } 
+       
+        
    }
     
 }
