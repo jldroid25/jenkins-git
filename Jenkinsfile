@@ -13,18 +13,11 @@ pipeline {
         }
         stage('Slack it'){
             steps {
-                slackSend channel: "#jenkinsre", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                slackSend 
+                    channel: "#jenkinsre", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} BUILD_STATUS={(curl --silent ${BUILD_URL}api/json | jq -r '.result')",
+                    sh 'echo BUILD_STATUS'
               }
             }
-         }
-    
-    post {
-        success {
-            slackSend channel: "#jenkinsre", message: "${env.BUILD_STATUS}"
-        }
         
-        failure {
-            slackSend channel: "#jenkinsre", message: "${env.BUILD_STATUS}"
-        }
     }
 }
