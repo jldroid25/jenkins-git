@@ -15,7 +15,7 @@ pipeline {
     
     post {
      always {
-       slackSend  channel: "jenkinsre",  message: "${env.BUILD_URL} ${env.JOB_NAME} ${env.currentBuild.currentResult}"
+       emailext body: "See ${BUILD_URL}", recipientProviders: [requestor()], subject: "Jenkins: ${JOB_NAME}: Build status is ${currentBuild.currentResult}"
      }
    }
     
