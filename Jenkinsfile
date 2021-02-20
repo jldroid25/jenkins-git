@@ -13,8 +13,7 @@ pipeline {
         }
             stage('Slack it'){
             steps {
-                slackSend channel: '#jenkisre', 
-                          message: 'Hello, did you see MTL?'
+                slackSend channel: "#jenkinsre", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
               }
             }
     
