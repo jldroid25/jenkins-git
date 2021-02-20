@@ -14,7 +14,7 @@ pipeline {
         
         stage('Pipeline Slack Info') {
             steps {
-                slackSend failOnError: true, channel: "#jenkinsre", message: " Successful Build: for  (<${env.BUILD_URL}open>) ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                slackSend failOnError: true, channel: "#jenkinsre", message: " Successful Build for:   ${env.JOB_NAME}  ${env.BUILD_NUMBER}  (<${env.BUILD_URL}open>) "
                 
             }
         } 
